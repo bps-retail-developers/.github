@@ -22,6 +22,6 @@
 - [ ] My Code Changes Have Been Tested Locally.
 - [ ] (Web Apps) I Have Run `ng build` and the Build was Successful.
 - [ ] (Services) My Code Changes Pass All Unit Tests.
-- [ ] (Services) My Code Changes Include New Unit Tests.
+- [ ] (Optional) My Code Changes Include New Unit Tests.
 
 > Template Created By: @KTBates Updated: 2025-11-04
