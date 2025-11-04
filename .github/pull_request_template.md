@@ -9,7 +9,8 @@
 ## :tickets: Jira Requirements
 - [ ] My Source Branch is Named after the Jira Ticket. Ex `FA-1234` or `REX-123`
 - [ ] My Commit Message(s) Follow the Established Formatting. `Sprint ## | JIRA-123 | Copy-Pasted Jira Story Title`
-- [ ] I Have Marked the Assoicated Jira Ticket as `Dev Complete` or `Staged`.
+- [ ] I Have Marked the Associated Jira Ticket as `Dev Complete` or `Staged`.
+- [ ] I Have Assigned the Associated Jira Ticket to a Lead Developer.
 - [ ] I Have Logged My Work Hours on the Associated Jira Ticket
 
 ## :put_litter_in_its_place: Logging Requirements
