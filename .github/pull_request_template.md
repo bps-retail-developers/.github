@@ -13,15 +13,15 @@
 - [ ] I Have Logged My Work Hours on the Associated Jira Ticket
 
 ## :put_litter_in_its_place: Logging Requirements
-- [ ] /(Web Apps) My Code Changes Do Not Contain Any `console.log`.
-- [ ] /(Web Apps) My Code Changes Did Not Introduce any Errors or Warnings in the Browser Console.
-- [ ] /(Services) My Code Changes Adequately Log Each Request's Details.
-- [ ] /(Services) My Code Changes Following the Established Logging Processes.
+- [ ] (Web Apps) My Code Changes Do Not Contain Any `console.log`.
+- [ ] (Web Apps) My Code Changes Did Not Introduce any Errors or Warnings in the Browser Console.
+- [ ] (Services) My Code Changes Adequately Log Each Request's Details.
+- [ ] (Services) My Code Changes Following the Established Logging Processes.
 
 ## :shipit: Testing Requirements
 - [ ] My Code Changes Have Been Tested Locally.
-- [ ] /(Web Apps) I Have Run `ng build` and the Build was Successful.
-- [ ] /(Services) My Code Changes Pass All Unit Tests.
-- [ ] /(Services) My Code Changes Include New Unit Tests.
+- [ ] (Web Apps) I Have Run `ng build` and the Build was Successful.
+- [ ] (Services) My Code Changes Pass All Unit Tests.
+- [ ] (Services) My Code Changes Include New Unit Tests.
 
 > Created By: @KTBates Updated: 2025-11-03
