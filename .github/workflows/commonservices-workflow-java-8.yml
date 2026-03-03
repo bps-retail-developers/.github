@@ -1,0 +1,48 @@
+name: Retail Applications Commonservices Workflow (Java 8)
+run-name: "Build: ${{ github.run_id }} by ${{ github.actor }}"
+
+env:
+  WORKFLOWS_DIRECTORY: .github/workflows
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  call-build-workflow:
+    name: Call Build Workflow
+    uses: ${{ vars.ORGANIZATION_NAME }}/${{ vars.SHARED_REPOSITORY_NAME }}/${{ env.WORKFLOWS_DIRECTORY }}/${{ vars.BUILD_WORKFLOW_JAVA_8 }}@${{ vars.SHARED_REPOSITORY_BRANCH }}
+    with:
+      job_name: ${{ github.event.repository.name }}
+      build_number: ${{ github.run_id }}
+    secrets:
+      ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
+      ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
+      WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}
+
+  call-deploy-dev-workflow:
+    name: Call Deploy to Dev Workflow
+    needs: call-build-workflow
+    uses: ${{ vars.ORGANIZATION_NAME }}/${{ vars.SHARED_REPOSITORY_NAME }}/${{ env.WORKFLOWS_DIRECTORY }}/${{ vars.DEPLOY_WORKFLOW_JAVA_8 }}@${{ vars.SHARED_REPOSITORY_BRANCH }}
+    with:
+      job_name: ${{ github.event.repository.name }}
+      build_number: ${{ github.run_id }}
+      environment_name: dev
+      k8s_namespace: dev-rtl
+      k8s_deployment_file: ${{ vars.K8S_DEPLOY_SERVICE }}
+    secrets:
+      WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}
+
+  call-deploy-test-workflow:
+    name: Call Deploy to Test Workflow
+    if: false
+    needs: call-deploy-dev-workflow
+    uses: ${{ vars.ORGANIZATION_NAME }}/${{ vars.SHARED_REPOSITORY_NAME }}/${{ env.WORKFLOWS_DIRECTORY }}/${{ vars.DEPLOY_WORKFLOW_JAVA_8 }}@${{ vars.SHARED_REPOSITORY_BRANCH }}
+    with:
+      job_name: ${{ github.event.repository.name }}
+      build_number: ${{ github.run_id }}
+      environment_name: test
+      k8s_namespace: test-rtl
+      k8s_deployment_file: ${{ vars.K8S_DEPLOY_SERVICE }}
+    secrets:
+      WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}
