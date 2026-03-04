@@ -11,7 +11,7 @@ jobs:
 
   call-build-workflow:
     name: Call Build Workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-build-workflow.yml@master
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-build-workflow-java-8.yml@master
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ github.run_id }}
