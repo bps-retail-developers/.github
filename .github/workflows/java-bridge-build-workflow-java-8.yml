@@ -1,4 +1,4 @@
-name: Retail Applications Java Bridge Workflow (Java 8)
+name: Retail Applications Build Java Bridge Workflow (Java 8)
 run-name: "Build: ${{ github.run_id }} by ${{ github.actor }}"
 
 env:
@@ -11,7 +11,7 @@ jobs:
 
   call-build-workflow:
     name: Call Build Workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/java-bridge-build-workflow.yml@master
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/java-bridge-build-workflow.yml@main
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ github.run_id }}
@@ -24,7 +24,7 @@ jobs:
   call-deploy-dev-workflow:
     name: Call Deploy to Dev Workflow
     needs: call-build-workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/java-bridge-deploy-workflow.yml@master
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/java-bridge-deploy-workflow.yml@main
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ github.run_id }}

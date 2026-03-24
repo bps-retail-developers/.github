@@ -1,4 +1,4 @@
-name: Retail Applications Deploy to Environment Workflow
+name: Retail Applications Deploy Java Bridge Workflow
 run-name: "Deploy Build: ${{ inputs.build_number }} to ${{ inputs.environment }} by ${{ github.actor }}"
 
 env:
@@ -25,7 +25,7 @@ jobs:
 
   call-deploy-workflow:
     name: Call Deploy Workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/java-bridge-deploy-workflow.yml@master
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/java-bridge-deploy-workflow.yml@main
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ inputs.build_number }}
