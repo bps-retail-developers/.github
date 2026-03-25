@@ -1,0 +1,36 @@
+name: Retail Applications Build w/ Persistent Volume Workflow (Java 8)
+run-name: "Build: ${{ github.run_id }} by ${{ github.actor }}"
+
+env:
+  WORKFLOWS_DIRECTORY: .github/workflows
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  call-build-workflow:
+    name: Call Build Workflow
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-build-workflow-java-8.yml@main
+    with:
+      job_name: ${{ github.event.repository.name }}
+      build_number: ${{ github.run_id }}
+    secrets:
+      ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
+      ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
+      WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}
+
+  call-deploy-dev-workflow:
+    name: Call Deploy to Dev Workflow
+    needs: call-build-workflow
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/persistent-deploy-workflow.yml@main
+    with:
+      job_name: ${{ github.event.repository.name }}
+      build_number: ${{ github.run_id }}
+      environment_name: dev
+      k8s_namespace: dev-rtl
+      k8s_deployment_file: ${{ vars.K8S_DEPLOY_PERSISTENT }}
+      pv_claim_name: ${{ vars.PV_CLAIM_NAME }}
+      pv_mount_path: ${{ vars.PV_MOUNT_PATH }}
+    secrets:
+      WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}
