@@ -25,7 +25,7 @@ jobs:
 
   call-deploy-workflow:
     name: Call Deploy Workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/default-deploy-workflow.yml@master
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-deploy-workflow.yml@main
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ inputs.build_number }}
