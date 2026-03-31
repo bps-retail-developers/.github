@@ -1,0 +1,5 @@
+{
+  "name": "Retail Applications Build w/ Persistent Volume Workflow (Java 8)",
+  "description": "Workflow for building and testing Common Service applications with Persistent Volume using Java 8.",
+  "iconName": "octicon package"
+}

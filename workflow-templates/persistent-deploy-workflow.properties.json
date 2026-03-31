@@ -1,0 +1,5 @@
+{
+  "name": "Retail Applications Deploy w/ Persistent Volume Workflow",
+  "description": "Workflow for deploying Common Service applications with Persistent Volume to Azure.",
+  "iconName": "octicon package"
+}
