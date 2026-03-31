@@ -1,0 +1,5 @@
+{
+  "name": "Retail Applications Deploy NICS Service Workflow",
+  "description": "Workflow for deploying NICS applications to Azure.",
+  "iconName": "octicon package"
+}

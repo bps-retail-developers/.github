@@ -1,0 +1,36 @@
+name: Retail Applications Deploy to Environment Workflow
+run-name: "Deploy Build: ${{ inputs.build_number }} to ${{ inputs.environment }} by ${{ github.actor }}"
+
+env:
+  WORKFLOWS_DIRECTORY: .github/workflows
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select the environment to deploy to'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - test
+      build_number:
+        description: 'Enter the build number to deploy'
+        required: true
+        default: ''
+        type: string
+
+jobs:
+
+  call-deploy-workflow:
+    name: Call Deploy Workflow
+    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-deploy-workflow.yml@main
+    with:
+      job_name: ${{ github.event.repository.name }}
+      build_number: ${{ inputs.build_number }}
+      environment_name: ${{ inputs.environment }}
+      k8s_namespace: ${{ inputs.environment }}-rtl
+      k8s_deployment_file: ${{ vars.K8S_DEPLOY_SERVICE }}
+    secrets:
+      WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}

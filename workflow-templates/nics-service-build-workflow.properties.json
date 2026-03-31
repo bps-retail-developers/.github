@@ -1,0 +1,5 @@
+{
+  "name": "Retail Applications Build NICS Service Workflow",
+  "description": "Workflow for building and testing NICS applications using Java 8.",
+  "iconName": "octicon package"
+}

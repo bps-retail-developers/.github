@@ -1,0 +1,5 @@
+{
+  "name": "Retail Applications Build Java Bridge Workflow (Java 8)",
+  "description": "Workflow for building and testing Java Bridge applications using Java 8.",
+  "iconName": "octicon package"
+}

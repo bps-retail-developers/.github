@@ -1,0 +1,5 @@
+{
+  "name": "Retail Applications Deploy Angular Workflow",
+  "description": "Workflow for deploying Angular applications to Azure.",
+  "iconName": "octicon package"
+}
