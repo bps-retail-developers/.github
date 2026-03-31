@@ -1,5 +1,5 @@
 {
-  "name": "Retail Applications Deploy to Environment Workflow",
+  "name": "Retail Applications Deploy Commonservices Workflow",
   "description": "Workflow for deploying Common Service applications to Azure.",
   "iconName": "octicon package"
 }

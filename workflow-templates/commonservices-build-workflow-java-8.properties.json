@@ -1,5 +1,5 @@
 {
-  "name": "Retail Applications Commonservices Workflow (Java 8)",
+  "name": "Retail Applications Build Commonservices Workflow (Java 8)",
   "description": "Workflow for building and testing Common Service applications using Java 8.",
   "iconName": "octicon package"
 }
