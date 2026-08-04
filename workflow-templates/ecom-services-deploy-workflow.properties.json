@@ -1,5 +1,5 @@
 {
-  "name": "Ecom Applications Deploy Java Bridge Workflow",
+  "name": "Ecom Deploy Commonservices Workflow (Java 8)",
   "description": "Workflow for deploying Ecom Services to Azure.",
   "iconName": "octicon package"
 }

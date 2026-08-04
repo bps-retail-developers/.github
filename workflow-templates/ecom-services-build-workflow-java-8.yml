@@ -11,7 +11,7 @@ jobs:
 
   call-build-workflow:
     name: Call Build Workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-build-workflow-java-8.yml@main
+    uses: bps-retail-developers/ecomm-shared-workflows/.github/workflows/commonservices-build-workflow-java-8.yml@main
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ github.run_id }}
@@ -23,12 +23,12 @@ jobs:
   call-deploy-dev-workflow:
     name: Call Deploy to Dev Workflow
     needs: call-build-workflow
-    uses: bps-retail-developers/retail-apps-shared/.github/workflows/commonservices-deploy-workflow.yml@main
+    uses: bps-retail-developers/ecomm-shared-workflows/.github/workflows/commonservices-deploy-workflow.yml@main
     with:
       job_name: ${{ github.event.repository.name }}
       build_number: ${{ github.run_id }}
       environment_name: dev
       k8s_namespace: dev-ecom
-      k8s_deployment_file: ${{ vars.K8S_DEPLOY_SERVICE }}
+      k8s_deployment_file: ${{ vars.ECOMM_K8S_DEPLOY_SERVICE }}
     secrets:
       WORKFLOW_GITHUB_TOKEN: ${{ secrets.CI_SHARED_REPO_ACCESS }}
